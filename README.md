@@ -1,10 +1,10 @@
-Sujet de projet BD relationnelle CSC8444 : Gestion d’un Haras et de ses Compétitions
-Objectif :
+# Sujet de projet BD relationnelle CSC8444 : Gestion d’un Haras et de ses Compétitions
+## Objectif :
 
 L'objectif est de se familiariser avec la conception de bases de données relationnelles et leur utilisation dans une application web. Vous modéliserez une base de données pour la gestion d’un haras (élevage de chevaux), incluant la gestion des chevaux, des cavaliers, des soins vétérinaires et des compétitions équestres.
 
 Dans une première étape, vous construirez un MCD permettant de modéliser la base de données du haras. Ensuite, vous réaliserez le MLD et implanterez le MPD sur un SGBD. Vous insérerez des données de test en lien avec les questions Q1 à Q5 et développerez une application web en PHP pour interagir avec la base de données.
-Partie 1 : Réalisation du MCD
+## Partie 1 : Réalisation du MCD
 
 Le modèle conceptuel devra permettre de gérer :
 
@@ -22,7 +22,8 @@ Q2 : Liste des chevaux ayant eu un soin vétérinaire dans les 30 derniers jours
 Q3 : Liste des cavaliers n’ayant pas participé à une compétition depuis plus de six mois.
 Q4 : Nombre moyen de compétitions disputées par cheval dans l’année.
 Q5 : Club ayant remporté le plus de podiums en compétition.
-Partie 2 : Réalisation du MLD et MPD
+
+## Partie 2 : Réalisation du MLD et MPD
 
     Transformer le MCD en MLD en appliquant les règles de transformation vues en cours.
     Générer le script SQL de création de la base, en choisissant les bons types pour chaque attribut et en ajoutant :
@@ -31,10 +32,11 @@ Partie 2 : Réalisation du MLD et MPD
     Insérer un jeu de données permettant de tester les requêtes SQL de la partie 3.
     Tester l’insertion de données erronées et démontrer que le SGBD applique bien les contraintes d’intégrité.
 
-Partie 3 : Requêtes SQL
+## Partie 3 : Requêtes SQL
 
 Écrire et tester sur le SGBD les requêtes SQL permettant de répondre aux questions Q1 à Q5.
-Partie 4 : Vues et droits
+
+## Partie 4 : Vues et droits
 
 On distingue deux catégories d’utilisateurs : les vétérinaires et les organisateurs de compétitions.
 
@@ -42,7 +44,7 @@ On distingue deux catégories d’utilisateurs : les vétérinaires et les organ
     Créer une vue pour chaque catégorie (exemple : liste des chevaux sous suivi vétérinaire pour les vétérinaires).
     Écrire les requêtes SQL pour créer les utilisateurs et leur attribuer les droits d’accès via GRANT.
 
-Partie 5 : Application web en PHP
+## Partie 5 : Application web en PHP
 
 Créer une application permettant :
 
