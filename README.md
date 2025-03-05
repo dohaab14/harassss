@@ -17,10 +17,15 @@ Le modèle conceptuel devra permettre de gérer :
     Les entraîneurs, associés aux chevaux qu’ils entraînent, avec une spécialité et un club.
 
 Le MCD devra être construit de manière à répondre aux questions suivantes :
+
 Q1 : Liste des chevaux classés par race et nombre de compétitions disputées.
+
 Q2 : Liste des chevaux ayant eu un soin vétérinaire dans les 30 derniers jours.
+
 Q3 : Liste des cavaliers n’ayant pas participé à une compétition depuis plus de six mois.
+
 Q4 : Nombre moyen de compétitions disputées par cheval dans l’année.
+
 Q5 : Club ayant remporté le plus de podiums en compétition.
 
 ## Partie 2 : Réalisation du MLD et MPD
