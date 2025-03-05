@@ -49,6 +49,25 @@ On distingue deux catégories d’utilisateurs : les vétérinaires et les organ
     Créer une vue pour chaque catégorie (exemple : liste des chevaux sous suivi vétérinaire pour les vétérinaires).
     Écrire les requêtes SQL pour créer les utilisateurs et leur attribuer les droits d’accès via GRANT.
 
+On a créé deux vues : vue_soins et vue_compet.
+```
+//un user entraineur voit les soins
+CREATE VIEW vue_soins AS
+SELECT
+    sv.date_soin,
+    sv.nature_soin,
+    c.nom_cheval,
+    v.nom_vet
+FROM
+    soin_veterinaire sv
+JOIN
+    cheval c ON sv.id_cheval = c.id_cheval
+JOIN
+    veterinaire v on sv.id_vet = v.id_vet;
+
+
+
+```
 ## Partie 5 : Application web en PHP
 
 Créer une application permettant :
