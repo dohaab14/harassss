@@ -83,6 +83,14 @@ JOIN entraineur en ON e.id_entraineur = en.id_entraineur;
 
 //vue palmares
 
+CREATE VIEW vue_palmares_chevaux AS
+SELECT p.rang, c.nom_cheval, cp.nom_compet, cp.date_compet
+FROM palmares p
+JOIN cheval c ON p.id_cheval = c.id_cheval
+JOIN competition cp ON p.id_compet = cp.id_compet
+ORDER BY p.rang;
+
+
 ```
 ## Partie 5 : Application web en PHP
 
