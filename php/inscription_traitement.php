@@ -17,14 +17,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Insérer les données dans la base de données
-    $requete = "INSERT INTO Utilisateurs (nom, adresse_email, password, role) VALUES ('$nom', '$email', '$password', $role)";
+    $requete = "INSERT INTO Utilisateurs (nom, adresse_email, mdp, role) VALUES ('$nom', '$email', '$password', $role)";
     $resultat = mysqli_query($connexion, $requete);
 
     $sql = "CREATE USER '$nom'@'localhost' IDENTIFIED BY '$password'";
     $res = mysqli_query($connexion, $sql);
     // à modifier en fonction des différents droits entre veterinaire et organisateur
-    $sql1 = "GRANT DELETE,SELECT ON *.* TO '$nom'@'localhost'";
-    $res1 = mysqli_query($connexion, $sql1);
+    if ($role === "veterinaire"){
+        $sql1 = "GRANT ALL ON 'haras'.'soin_veterinaire' TO '$nom'@'localhost'";
+        $res1 = mysqli_query($connexion, $sql1);
+        
+        $sql2 = "GRANT SELECT ON 'haras'.* TO '$nom'@'localhost'";
+        $res2 = mysqli_query($connexion, $sql2);
+    }
     
     if ($resultat) {
         // Rediriger vers la page de connexion après l'inscription réussie
