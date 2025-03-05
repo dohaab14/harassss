@@ -24,13 +24,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $utilisateur = mysqli_fetch_assoc($resultat);
 
         // Vérifiez si le mot de passe correspond
-        if ($password === $utilisateur['Password']) {
+        if ($password === $utilisateur['mdp']) {
             // Authentification réussie
             if ($utilisateur['role'] == 'veterinaire') {
 
                 // Redirection vers la page réservée aux veto
 
-                header('Location: page_libraire.php');
+                header('Location: page_veto.php');
 
             } else {
 
