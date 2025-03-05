@@ -26,7 +26,7 @@ Q3 : Liste des cavaliers n’ayant pas participé à une compétition depuis plu
 
 Q4 : Nombre moyen de compétitions disputées par cheval dans l’année.
 
-Q5 : Club ayant remporté le plus de podiums en compétition.
+Q5 : Villes dans lesquelles un cheval est arrivé premier.
 
 ## Partie 2 : Réalisation du MLD et MPD
 
