@@ -49,7 +49,7 @@ On distingue deux catégories d’utilisateurs : les vétérinaires et les organ
     Créer une vue pour chaque catégorie (exemple : liste des chevaux sous suivi vétérinaire pour les vétérinaires).
     Écrire les requêtes SQL pour créer les utilisateurs et leur attribuer les droits d’accès via GRANT.
 
-On a créé deux vues : vue_soins et vue_compet.
+On va créer quatre vues : vue_soins,vue_chevaux,vue_compet,vue_palm.
 ```
 //un user entraineur voit les soins
 CREATE VIEW vue_soins AS
