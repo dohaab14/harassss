@@ -65,7 +65,23 @@ JOIN
 JOIN
     veterinaire v on sv.id_vet = v.id_vet;
 
+//vue  les compet
+CREATE VIEW vue_compet
+AS SELECT c.nom_compet, c.date_compet, c.categorie, v.nom_ville
+FROM competition c
+JOIN ville v ON c.id_ville = v.id_ville;
 
+//vue chevaux 
+
+CREATE VIEW vue_chev
+AS SELECT c.nom_cheval, c.race, en.nom_club
+FROM cheval c
+JOIN entraine e ON c.id_cheval = e.id_cheval
+JOIN entraineur en ON e.id_entraineur = en.id_entraineur;
+
+;
+
+//vue palmares
 
 ```
 ## Partie 5 : Application web en PHP
