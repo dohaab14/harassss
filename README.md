@@ -102,6 +102,46 @@ Créer une application permettant :
     L’enregistrement d’un soin vétérinaire.
     La consultation du palmarès d’un cheval.
 
+### Architecture du projet PHP 
+```/haras-gestion
+│
+├── /assets
+│   └── /css
+│   └── /js
+│   └── /images
+│
+├── /includes
+│   └── db.php           // Connexion à la base de données
+│
+├── /views
+│   ├── login.php        // Formulaire de connexion
+│   ├── dashboard.php    // Tableau de bord de l'utilisateur
+│   ├── chevaux.php      // Liste des chevaux d'un club
+│   ├── inscription_compet.php // Formulaire d'inscription à une compétition
+│   ├── soins.php        // Enregistrement des soins vétérinaires
+│   ├── palmares.php     // Consultation du palmarès d'un cheval
+│   └── logout.php       // Déconnexion
+│
+├── /controllers
+│   └── AuthController.php    // Logique d'authentification
+│   └── DashboardController.php // Logique pour le tableau de bord
+│   └── ChevauxController.php  // Logique pour les chevaux
+│   └── CompetController.php   // Logique pour les compétitions
+│   └── SoinsController.php    // Logique pour les soins vétérinaires
+│   └── PalmaresController.php // Logique pour les palmarès
+│
+├── /models
+│   └── User.php        // Modèle pour l'utilisateur
+│   └── Cheval.php      // Modèle pour les chevaux
+│   └── Veterinaire.php // Modèle pour les vétérinaires
+│   └── Competition.php // Modèle pour les compétitions
+│   └── Soin.php        // Modèle pour les soins vétérinaires
+│   └── Palmares.php    // Modèle pour les palmarès
+│
+└── index.php           // Page d'accueil du projet
+```
+    
+
 Documents à rendre :
 
     MCD
