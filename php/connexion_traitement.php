@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Recherchez l'utilisateur dans la base de données
-    $requete = "SELECT * FROM Utilisateurs WHERE adresse_email = '$email'";
+    $requete = "SELECT * FROM utilisateur WHERE email = '$email'";
     $resultat = mysqli_query($connexion, $requete);
 
     // Vérifiez si l'utilisateur existe
@@ -26,19 +26,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Vérifiez si le mot de passe correspond
         if ($password === $utilisateur['mdp']) {
             // Authentification réussie
-            if ($utilisateur['role'] == 'veterinaire') {
+            //if ($utilisateur['role'] == 'veterinaire') {
 
                 // Redirection vers la page réservée aux veto
 
-                header('Location: page_veto.php');
+             //   header('Location: page_veto.php');
 
-            } else {
+            //} else {
 
                 // Redirection vers la page d'accueil pour les utilisateurs normaux
 
-                header('Location: accueil.php');
+            header('Location: indexinit.php');
 
-            }
+            //}
             exit();
         } else {
             // Mot de passe incorrect
