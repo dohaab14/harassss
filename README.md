@@ -22,7 +22,7 @@ Q1 : Liste des chevaux classés par race et nombre de compétitions disputées.
 
 Q2 : Liste des chevaux ayant eu un soin vétérinaire dans les 30 derniers jours.
 
-Q3 : Liste des cavaliers n’ayant pas participé à une compétition depuis plus de six mois.
+Q3 : Liste des cavaliers ayant participé à une compétition dans les six mois.
 
 Q4 : Nombre moyen de compétitions disputées par cheval dans l’année.
 
