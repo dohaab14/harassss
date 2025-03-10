@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Insérer les données dans la base de données
-    $requete = "INSERT INTO Utilisateurs (nom, adresse_email, mdp, role) VALUES ('$nom', '$email', '$password', $role)";
+    $requete = "INSERT INTO utilisateur (nom, email, mdp, role) VALUES ('$nom', '$email', '$password', $role)";
     $resultat = mysqli_query($connexion, $requete);
 
     $sql = "CREATE USER '$nom'@'localhost' IDENTIFIED BY '$password'";
