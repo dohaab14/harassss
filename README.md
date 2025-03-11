@@ -101,7 +101,8 @@ Créer une application permettant :
     L’inscription d’un cheval à une compétition.
     L’enregistrement d’un soin vétérinaire.
     La consultation du palmarès d’un cheval.
-
+### COMANDLINES USEFUL
+`php artisan serve`
 ### Architecture du projet PHP 
 ```/haras-gestion
 │
