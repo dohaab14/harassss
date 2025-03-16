@@ -18,15 +18,15 @@ Le modèle conceptuel devra permettre de gérer :
 
 Le MCD devra être construit de manière à répondre aux questions suivantes :
 
-Q1 : Liste des chevaux classés par race et nombre de compétitions disputées.OK
+Q1 : Liste des chevaux classés par race et nombre de compétitions disputées.**OK**
 
-Q2 : Liste des chevaux ayant eu un soin vétérinaire dans les 30 derniers jours. OK
+Q2 : Liste des chevaux ayant eu un soin vétérinaire dans les 30 derniers jours. **OK**
 
-Q3 : Liste des cavaliers ayant participé à une compétition dans les six mois. c dans CompetitionController.php
+Q3 : Liste des cavaliers ayant participé à une compétition dans les six mois. **OK c dans CompetitionController.php**
 
-Q4 : Nombre moyen de compétitions disputées par cheval dans l’année. OK c dans CompetitionController.php
+Q4 : Nombre moyen de compétitions disputées par cheval dans l’année. **OK c dans CompetitionController.php**
 
-Q5 : Villes dans lesquelles un cheval est arrivé premier. OK c dans CompetitionController.php
+Q5 : Villes dans lesquelles un cheval est arrivé premier. **OK c dans CompetitionController.ph**p
 
 ## Partie 2 : Réalisation du MLD et MPD
 
@@ -96,13 +96,14 @@ ORDER BY p.rang;
 
 Créer une application permettant :
 
-    La connexion avec authentification via une table Utilisateurs (login/mot de passe).
-    L’affichage des chevaux d’un club donné.
+    La connexion avec authentification via une table Utilisateurs (login/mot de passe).**OK**
+    L’affichage des chevaux d’un club donné. **OK**
     L’inscription d’un cheval à une compétition.
-    L’enregistrement d’un soin vétérinaire.
+    L’enregistrement d’un soin vétérinaire. **(en cours)**
     La consultation du palmarès d’un cheval.
 ### COMANDLINES USEFUL
 `php artisan serve`
+
 Doc à rendre
 
     MCD
