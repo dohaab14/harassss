@@ -100,7 +100,7 @@ Créer une application permettant :
     L’affichage des chevaux d’un club donné. **OK**
     L’inscription d’un cheval à une compétition.
     L’enregistrement d’un soin vétérinaire. **(en cours)**
-    La consultation du palmarès d’un cheval.
+    La consultation du palmarès d’un cheval.**OK**
 ### COMANDLINES USEFUL
 `php artisan serve`
 
