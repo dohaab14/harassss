@@ -2,6 +2,7 @@
 ## Objectif :
 
 L'objectif est de se familiariser avec la conception de bases de données relationnelles et leur utilisation dans une application web. Vous modéliserez une base de données pour la gestion d’un haras (élevage de chevaux), incluant la gestion des chevaux, des cavaliers, des soins vétérinaires et des compétitions équestres.
+On part du principe que sur le site nous sommes les admin; il n'y a pas de role en particulier sur le site pour celui-ci.
 
 Dans une première étape, vous construirez un MCD permettant de modéliser la base de données du haras. Ensuite, vous réaliserez le MLD et implanterez le MPD sur un SGBD. Vous insérerez des données de test en lien avec les questions Q1 à Q5 et développerez une application web en PHP pour interagir avec la base de données.
 ## Partie 1 : Réalisation du MCD
