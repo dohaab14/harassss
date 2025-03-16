@@ -18,15 +18,15 @@ Le modèle conceptuel devra permettre de gérer :
 
 Le MCD devra être construit de manière à répondre aux questions suivantes :
 
-Q1 : Liste des chevaux classés par race et nombre de compétitions disputées.
+Q1 : Liste des chevaux classés par race et nombre de compétitions disputées.OK
 
-Q2 : Liste des chevaux ayant eu un soin vétérinaire dans les 30 derniers jours.
+Q2 : Liste des chevaux ayant eu un soin vétérinaire dans les 30 derniers jours. OK
 
-Q3 : Liste des cavaliers ayant participé à une compétition dans les six mois.
+Q3 : Liste des cavaliers ayant participé à une compétition dans les six mois. c dans CompetitionController.php
 
-Q4 : Nombre moyen de compétitions disputées par cheval dans l’année.
+Q4 : Nombre moyen de compétitions disputées par cheval dans l’année. OK c dans CompetitionController.php
 
-Q5 : Villes dans lesquelles un cheval est arrivé premier.
+Q5 : Villes dans lesquelles un cheval est arrivé premier. OK c dans CompetitionController.php
 
 ## Partie 2 : Réalisation du MLD et MPD
 
