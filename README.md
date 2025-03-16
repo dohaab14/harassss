@@ -99,7 +99,7 @@ Créer une application permettant :
 
     La connexion avec authentification via une table Utilisateurs (login/mot de passe).**OK**
     L’affichage des chevaux d’un club donné. **OK**
-    L’inscription d’un cavalier à une compétition .**OK**
+    L’affichage des informations d'un cavalier .**OK**
     L’enregistrement d’un soin vétérinaire (creation/suppression/modification). **OK**
     La consultation du palmarès d’un cheval.**OK**
 ### COMANDLINES USEFUL
