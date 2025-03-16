@@ -99,8 +99,8 @@ Créer une application permettant :
 
     La connexion avec authentification via une table Utilisateurs (login/mot de passe).**OK**
     L’affichage des chevaux d’un club donné. **OK**
-    L’inscription d’un cheval à une compétition.**PAS UTILE**
-    L’enregistrement d’un soin vétérinaire. **(en cours)**
+    L’inscription d’un cavalier à une compétition .**OK**
+    L’enregistrement d’un soin vétérinaire (creation/suppression/modification). **OK**
     La consultation du palmarès d’un cheval.**OK**
 ### COMANDLINES USEFUL
 `php artisan serve`
