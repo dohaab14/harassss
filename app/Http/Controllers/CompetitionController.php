@@ -76,7 +76,7 @@ class CompetitionController extends Controller
                                JOIN competition AS c ON p.id_compet=c.id_compet 
                                JOIN ville AS v ON v.id_ville=c.id_ville 
                                WHERE p.rang=1 
-                               GROUP BY v.id_ville, ch.nom_cheval");
+                               GROUP BY v.id_ville, ch.nom_cheval,v.nom_ville");
 
         return view('competitions.villes_victoires', compact('villes'));
     }
