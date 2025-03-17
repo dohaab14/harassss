@@ -42,6 +42,47 @@ Q5 : Villes dans lesquelles un cheval est arrivé premier. **OK c dans Competiti
 
 Écrire et tester sur le SGBD les requêtes SQL permettant de répondre aux questions Q1 à Q5.
 
+```
+ 
+SELECT c.nom_cheval, count(p.id_cheval)
+FROM cheval as c, palmares as p
+WHERE c.id_cheval = p.id_cheval
+GROUP by c.nom_cheval
+order by count(p.id_cheval) DESC;
+
+SELECT C.nom_cheval, sv.date_soin
+FROM cheval AS C ,
+soin_veterinaire AS sv
+WHERE C.id_cheval = sv.id_cheval AND sv.date_soin <= CURDATE() AND DATEDIFF(CURDATE(), sv.date_soin) <= 30;
+
+
+SELECT c.prenom_caval, c.nom_caval
+FROM cavalier as c
+Join participe as p on c.id_licence = p.id_licence
+JOIN competition as co on co.id_compet = p.id_compet
+where DATEDIFF(now(),co.date_compet) <=180;
+
+
+SELECT ch.nom_cheval, COUNT(p.id_compet) AS nombre_competitions
+FROM cheval AS ch
+JOIN palmares AS p ON ch.id_cheval = p.id_cheval
+JOIN competition AS c ON p.id_compet = c.id_compet
+WHERE YEAR(c.date_compet) = 2025 // dans le code on a une variable year
+GROUP BY ch.nom_cheval;
+
+
+SELECT ch.nom_cheval, v.nom_ville, COUNT(p.id_cheval)
+AS nombre_compétion
+FROM cheval AS ch
+JOIN palmares as p on p.id_cheval=ch.id_cheval
+JOIN competition as c on p.id_compet=c.id_compet
+JOIN ville as v on v.id_ville=c.id_ville
+WHERE p.rang=1
+GROUP BY v.id_ville, ch.nom_cheval;
+
+```
+
+
 ## Partie 4 : Vues et droits
 
 On distingue deux catégories d’utilisateurs : les vétérinaires et les organisateurs de compétitions.
