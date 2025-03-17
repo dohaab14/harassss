@@ -78,7 +78,7 @@ JOIN palmares as p on p.id_cheval=ch.id_cheval
 JOIN competition as c on p.id_compet=c.id_compet
 JOIN ville as v on v.id_ville=c.id_ville
 WHERE p.rang=1
-GROUP BY v.id_ville, ch.nom_cheval;
+GROUP BY v.nom_ville, ch.nom_cheval;
 
 ```
 
