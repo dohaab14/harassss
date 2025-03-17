@@ -1,10 +1,19 @@
-# Sujet de projet BD relationnelle CSC8444 : Gestion d’un Haras et de ses Compétitions
+## Sujet de projet BD relationnelle CSC8444 : Gestion d’un Haras et de ses Compétitions
+                                                     ABERKANE Doha & MESMIN Aude
+-----------------------------
+
 ## Objectif :
 
 L'objectif est de se familiariser avec la conception de bases de données relationnelles et leur utilisation dans une application web. Vous modéliserez une base de données pour la gestion d’un haras (élevage de chevaux), incluant la gestion des chevaux, des cavaliers, des soins vétérinaires et des compétitions équestres.
 On part du principe que sur le site nous sommes les admin; il n'y a pas de role en particulier sur le site pour celui-ci.
 
 Dans une première étape, vous construirez un MCD permettant de modéliser la base de données du haras. Ensuite, vous réaliserez le MLD et implanterez le MPD sur un SGBD. Vous insérerez des données de test en lien avec les questions Q1 à Q5 et développerez une application web en PHP pour interagir avec la base de données.
+
+## Informations utiles: 
+
+Chaque partie contient la consigne ainsi que les éléments de réponses aux questions. Pour dire que ce sont nos réponses nous avons ajouté: **--réponses**.
+
+Concernant la partie création et insertion des données tout se trouve dans le fichier sql `haras.sql`
 
 -----
 
@@ -38,9 +47,10 @@ Q5 : Villes dans lesquelles un cheval est arrivé premier.
 
     Transformer le MCD en MLD en appliquant les règles de transformation vues en cours.
     Générer le script SQL de création de la base, en choisissant les bons types pour chaque attribut et en ajoutant :
-        Contraintes de clé primaire et d’intégrité référentielle.
-        Deux contraintes d’intégrité métier (exemple : un cheval ne peut participer qu’à une seule compétition par jour).
-Nos contraintes:         
+    Contraintes de clé primaire et d’intégrité référentielle.
+    Deux contraintes d’intégrité métier (exemple : un cheval ne peut participer qu’à une seule compétition par jour).
+    
+**-- réponses**
 ```
 ALTER TABLE cheval ADD CONSTRAINT Csexe CHECK(sexe_chev IN ('M', 'F'));
 
@@ -49,14 +59,16 @@ ALTER TABLE palmares ADD CONSTRAINT Crang CHECK(rang BETWEEN 1 and 10);
 ALTER TABLE palmares ADD CONSTRAINT unique_rang_par_competition UNIQUE (id_compet, rang); 
 ```
 
-    Insérer un jeu de données permettant de tester les requêtes SQL de la partie 3.
-    Tester l’insertion de données erronées et démontrer que le SGBD applique bien les contraintes d’intégrité.
+Insérer un jeu de données permettant de tester les requêtes SQL de la partie 3.(OK)
+Tester l’insertion de données erronées et démontrer que le SGBD applique bien les contraintes d’intégrité.(OK)
+
 -----
 
 ## Partie 3 : Requêtes SQL
 
 Écrire et tester sur le SGBD les requêtes SQL permettant de répondre aux questions Q1 à Q5.
 
+**-- réponses**
 ```
  
 SELECT c.nom_cheval, count(p.id_cheval)
@@ -107,7 +119,9 @@ On distingue deux catégories d’utilisateurs : les vétérinaires et les organ
     Créer une vue pour chaque catégorie (exemple : liste des chevaux sous suivi vétérinaire pour les vétérinaires).
     Écrire les requêtes SQL pour créer les utilisateurs et leur attribuer les droits d’accès via GRANT.
 
-On va créer quatre vues : vue_soins,vue_chevaux,vue_compet,vue_palm.
+**-- réponses**
+On a créé quatre vues : vue_soins,vue_chevaux,vue_compet,vue_palm.
+
 ```
 //un user entraineur voit les soins
 CREATE VIEW vue_soins AS
@@ -156,11 +170,11 @@ ORDER BY p.rang;
 
 Créer une application permettant :
 
-    La connexion avec authentification via une table Utilisateurs (login/mot de passe).**OK**
-    L’affichage des chevaux d’un club donné. **OK**
-    L’affichage des informations d'un cavalier .**OK**
-    L’enregistrement d’un soin vétérinaire (creation/suppression/modification). **OK**
-    La consultation du palmarès d’un cheval.**OK**
+    La connexion avec authentification via une table Utilisateurs (login/mot de passe).
+    L’affichage des chevaux d’un club donné.
+    L’affichage des informations d'un cavalier.
+    L’enregistrement d’un soin vétérinaire (creation/suppression/modification).
+    La consultation du palmarès d’un cheval.
 -----
 
 ### Comment lancer le projet 
