@@ -1,0 +1,56 @@
+/* Style global */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa; /* Gris clair */
+    color: #333;
+}
+
+/* Style du titre */
+h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    letter-spacing: 1px;
+}
+
+/* Style du tableau */
+.table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #fff; /* Fond blanc pour un look chic */
+}
+
+.table-bordered {
+    border: 1px solid #e0e0e0; /* Bordure légère */
+    border-radius: 8px;
+}
+
+.table th, .table td {
+    padding: 15px 20px;
+    text-align: left;
+    font-size: 16px;
+    color: #495057; /* Couleur du texte dans les cellules */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa; /* Gris très clair */
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e2e6ea; /* Gris clair au survol */
+}
+
+/* En-tête du tableau */
+.table thead {
+    background-color: #f1f1f1; /* Légèrement gris */
+    color: #6c757d; /* Couleur des textes dans l'en-tête */
+    font-weight: 500;
+}
+
+/* Adapter le design aux petits écrans */
+@media (max-width: 768px) {
+    .table th, .table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+}
