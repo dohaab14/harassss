@@ -5,6 +5,9 @@ L'objectif est de se familiariser avec la conception de bases de données relati
 On part du principe que sur le site nous sommes les admin; il n'y a pas de role en particulier sur le site pour celui-ci.
 
 Dans une première étape, vous construirez un MCD permettant de modéliser la base de données du haras. Ensuite, vous réaliserez le MLD et implanterez le MPD sur un SGBD. Vous insérerez des données de test en lien avec les questions Q1 à Q5 et développerez une application web en PHP pour interagir avec la base de données.
+
+-----
+
 ## Partie 1 : Réalisation du MCD
 
 Le modèle conceptuel devra permettre de gérer :
@@ -19,15 +22,17 @@ Le modèle conceptuel devra permettre de gérer :
 
 Le MCD devra être construit de manière à répondre aux questions suivantes :
 
-Q1 : Liste des chevaux classés par race et nombre de compétitions disputées.**OK**
+Q1 : Liste des chevaux classés par race et nombre de compétitions disputées.
 
-Q2 : Liste des chevaux ayant eu un soin vétérinaire dans les 30 derniers jours. **OK**
+Q2 : Liste des chevaux ayant eu un soin vétérinaire dans les 30 derniers jours. 
 
-Q3 : Liste des cavaliers ayant participé à une compétition dans les six mois. **OK c dans CompetitionController.php**
+Q3 : Liste des cavaliers ayant participé à une compétition dans les six mois.
 
-Q4 : Nombre moyen de compétitions disputées par cheval dans l’année. **OK c dans CompetitionController.php**
+Q4 : Nombre moyen de compétitions disputées par cheval dans l’année. 
 
-Q5 : Villes dans lesquelles un cheval est arrivé premier. **OK c dans CompetitionController.ph**p
+Q5 : Villes dans lesquelles un cheval est arrivé premier. 
+
+-----
 
 ## Partie 2 : Réalisation du MLD et MPD
 
@@ -35,8 +40,18 @@ Q5 : Villes dans lesquelles un cheval est arrivé premier. **OK c dans Competiti
     Générer le script SQL de création de la base, en choisissant les bons types pour chaque attribut et en ajoutant :
         Contraintes de clé primaire et d’intégrité référentielle.
         Deux contraintes d’intégrité métier (exemple : un cheval ne peut participer qu’à une seule compétition par jour).
+Nos contraintes:         
+```
+ALTER TABLE cheval ADD CONSTRAINT Csexe CHECK(sexe_chev IN ('M', 'F'));
+
+ALTER TABLE palmares ADD CONSTRAINT Crang CHECK(rang BETWEEN 1 and 10); 
+
+ALTER TABLE palmares ADD CONSTRAINT unique_rang_par_competition UNIQUE (id_compet, rang); 
+```
+
     Insérer un jeu de données permettant de tester les requêtes SQL de la partie 3.
     Tester l’insertion de données erronées et démontrer que le SGBD applique bien les contraintes d’intégrité.
+-----
 
 ## Partie 3 : Requêtes SQL
 
@@ -82,6 +97,7 @@ GROUP BY v.nom_ville, ch.nom_cheval;
 
 ```
 
+-----
 
 ## Partie 4 : Vues et droits
 
@@ -134,6 +150,8 @@ ORDER BY p.rang;
 
 
 ```
+-----
+
 ## Partie 5 : Application web en PHP
 
 Créer une application permettant :
@@ -143,8 +161,90 @@ Créer une application permettant :
     L’affichage des informations d'un cavalier .**OK**
     L’enregistrement d’un soin vétérinaire (creation/suppression/modification). **OK**
     La consultation du palmarès d’un cheval.**OK**
-### COMANDLINES USEFUL
+-----
+
+### Comment lancer le projet 
+
+#### Prérequis 
+
+- PHP v8.3 +
+- Laravel Installer 5.14.0
+- Composer
+- MySQL
+
+#### Fichiers à modifier: 
+Il faut regarder le numero de port de la BD quand XAMPP ou WAMP est allumé.
+
+Sur **MAC**: 
+
+dans **.env** :
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=8889
+DB_DATABASE=haras
+DB_USERNAME=root
+DB_PASSWORD=root
+```
+
+dans **config/database.php**
+```
+ 'mysql' => [
+            'driver' => 'mysql',
+            'url' => env('DB_URL'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '8889'),
+            'database' => env('DB_DATABASE', 'laravel'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', 'root'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => env('DB_CHARSET', 'utf8mb4'),
+            'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+```
+Sur **Windows**: 
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=haras
+DB_USERNAME=root
+```
+dans **config/database.php**
+```
+ 'mysql' => [
+            'driver' => 'mysql',
+            'url' => env('DB_URL'),
+            'host' => env('DB_HOST', '127.0.0.1'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'laravel'),
+            'username' => env('DB_USERNAME', 'root'),
+            'password' => env('DB_PASSWORD', ''),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => env('DB_CHARSET', 'utf8mb4'),
+            'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+```
+
+#### Lancer sur le terminal
 `php artisan serve`
+
+-----
 
 Doc à rendre
 
@@ -155,65 +255,5 @@ Doc à rendre
     Code source PHP de l’application prête pour une démonstration
 
 Remarque : Ce projet permettra d’explorer les concepts de modélisation, de gestion des droits et de développement d’applications interagissant avec une base de données, tout en appliquant ces connaissances à un domaine concret et structuré.
-
-
-
-## About Laravel
-
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
-## Learning Laravel
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 
