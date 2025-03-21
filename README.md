@@ -1,5 +1,4 @@
 ## Sujet de projet BD relationnelle CSC8444 : Gestion d’un Haras et de ses Compétitions
-                                                     ABERKANE Doha & MESMIN Aude
 -----------------------------
 
 ## Objectif :
